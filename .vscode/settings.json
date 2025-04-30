@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "niva_modbus_stm32_config.h": "c"
+    }
+}
