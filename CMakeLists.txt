@@ -8,8 +8,13 @@ add_library(${LIB_NAME} INTERFACE)
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
+if(USE_DEFAULT_CONFIG)
+set(${CONFIG_DIR} src/template)
+endif()
+
 target_include_directories(${LIB_NAME} INTERFACE
     src/
+    ${CONFIG_DIR}
 )
 
 target_sources(${LIB_NAME} INTERFACE
