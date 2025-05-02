@@ -10,6 +10,7 @@ enable_language(C ASM)
 
 if(NIVA_MODBUS_STM32_USE_DEFAULT_CONFIG)
 set(NIVA_MODBUS_STM32_CONFIG_DIR src/template)
+set(NIVA_MODBUS_STM32_SOURCE src/template/niva_modbus_stm32_config.h)
 endif()
 
 target_include_directories(${LIB_NAME} INTERFACE
@@ -20,6 +21,12 @@ target_include_directories(${LIB_NAME} INTERFACE
 target_sources(${LIB_NAME} INTERFACE
     src/niva_modbus_stm32.c
     src/niva_modbus_stm32/usart.c
+    src/niva_modbus_stm32/usart.h
+    src/niva_modbus_stm32/tim.h
+    src/niva_modbus_stm32/dma.h
+    src/niva_modbus_stm32/gpio.h
+    src/niva_modbus_stm32/rx_packet.h
+    ${NIVA_MODBUS_STM32_SOURCE}
 )
 
 target_link_directories(${LIB_NAME} INTERFACE
